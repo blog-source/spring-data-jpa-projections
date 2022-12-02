@@ -26,6 +26,6 @@ public class AddressRepositoryTest {
         var address = listOfAddress.get(0);
 
         assertEquals("Armavir", address.getCity());
-        assertEquals("Armavir", address.getStreet());
+        assertEquals("Tumanyan", address.getStreet());
     }
 }
