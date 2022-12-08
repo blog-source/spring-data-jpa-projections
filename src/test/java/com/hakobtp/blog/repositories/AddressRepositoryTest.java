@@ -28,4 +28,15 @@ public class AddressRepositoryTest {
         assertEquals("Armavir", address.getCity());
         assertEquals("Tumanyan", address.getStreet());
     }
+
+    @Test
+    void findStudentsEmailAndIdAndCityByZipCode() {
+        var tuples = addressRepository.findStudentsEmailAndIdAndCityByZipCode("00001");
+        assertEquals(1, tuples.size());
+
+        var tuple = tuples.get(0);
+        assertEquals(1, tuple.get("studentId", Long.class));
+        assertEquals("Armavir", tuple.get("city", String.class));
+        assertEquals("gurgen@mail.com", tuple.get("email", String.class));
+    }
 }
