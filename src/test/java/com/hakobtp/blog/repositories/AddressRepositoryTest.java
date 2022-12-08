@@ -39,4 +39,15 @@ public class AddressRepositoryTest {
         assertEquals("Armavir", tuple.get("city", String.class));
         assertEquals("gurgen@mail.com", tuple.get("email", String.class));
     }
+
+    @Test
+    void findStudentsInfoByZipCode() {
+        var students = addressRepository.findStudentsInfoByZipCode("00001");
+        assertEquals(1, students.size());
+
+        var student = students.get(0);
+        assertEquals(1, student.getStudentId());
+        assertEquals("Armavir", student.getCity());
+        assertEquals("gurgen@mail.com", student.getEmail());
+    }
 }
